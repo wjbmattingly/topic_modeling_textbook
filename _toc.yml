@@ -1,0 +1,6 @@
+- file: intro
+  numbered: true
+- part: Key Concepts and Terms
+  chapters:
+  - file: 01_01_introduction_to_ner
+    title: Introduction to Named Entity Recognition
