@@ -282,9 +282,14 @@
 </div>
 <div class="section" id="rules-based-methods">
 <h2><span class="section-number">1.4. </span>Rules-Based Methods<a class="headerlink" href="#rules-based-methods" title="Permalink to this headline">¶</a></h2>
+<p>A rules-based approach to topic modeling uses a set of rules to extract topics from a text. It does this by identifying keywords in each text in a corpus. One of the most common ways to perform this task is via TF-IDF, or topic frequency-inverse document frequency. We will discuss this method a lot more in Part Two of these notebooks. Simply put, a TF-IDF looks for a word’s frequency in a single text, respective to that word’s use across the corpus as a whole. If that word occurs infrequently in all other documents, but frequently in one document, then we use rules to identify the document that sees one word used with a high frequency as the chief document of a given topic.</p>
+<p>For certain problems, a rules-based approach is particularly useful. As we will see, documents that are shorter, such as tweets, tend to fare better from rules-based approaches.</p>
 </div>
 <div class="section" id="machine-learning-based-methods">
 <h2><span class="section-number">1.5. </span>Machine Learning-Based Methods<a class="headerlink" href="#machine-learning-based-methods" title="Permalink to this headline">¶</a></h2>
+<p>Another option to identify topics in a text is via a machine learning-based approach. In this method, we do not give a computer system a set of rules, rather we let the computer generate its own rules to identify topics in a corpus. This is done in two different ways: supervised and unsupervised learning.</p>
+<p>In supervised learning, we know the key subjects in a corpus. We give a computer system a set of documents with their corresponding label to teach it to identify the characteristics that make that particular topic or class unique. This is mostly used for text classification.</p>
+<p>Another approach is via unsupervised learning. In unsupervised learning, we do not know the topics of our documents and, instead, we want let the system identify those topics and cluster the ones of a highd degree of similarity together. We then examine the words that occur the most frequently in each cluster to get a sense of the topics at hand. The classic example for machine learning topic modeling is LDA, or Latent Dirichlet Allocation. We will learn about this method in far more detail in Part Three.</p>
 </div>
 <div class="section" id="why-use-topic-modeling">
 <h2><span class="section-number">1.6. </span>Why use Topic Modeling?<a class="headerlink" href="#why-use-topic-modeling" title="Permalink to this headline">¶</a></h2>
