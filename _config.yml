@@ -1,0 +1,8 @@
+# Book settings
+title: Introduction to Named Entity Recognition
+author: William Mattingly
+logo: 'images/data_science_lab_logo.png'
+execute:
+  execute_notebooks: 'off'
+parse:
+  myst_extended_syntax: true
