@@ -11,7 +11,7 @@
 Mattingly, William. <i>Introduction to Topic Modeling and Text Classification</i>, 2021. <a href="topic-modeling.pythonhumanities.com" target="_blank">topic-modeling.pythonhumanities.com</a>.
 <p align="center">
 
-<br>
+<br><br>
 ### <p align="center">Introduction</p>
 This series of notebooks is meant to function as a textbook for topic modeling and text classification, tasks of natural language processing. If you find typos or errors in these notebooks, please do not hesitate to contact me either via <a href="https://twitter.com/wjb_mattingly" target="_blank">Twitter</a> or here on GitHub.
 
