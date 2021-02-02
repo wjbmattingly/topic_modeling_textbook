@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Introduction to Topic Modeling &#8212; Introduction to Topic Modeling and Text Classification</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="INTRODUCTION TO TOPIC MODELING AND TEXT CLASSIFICATION" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/data_science_lab_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Topic Modeling and Text Classification</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   <p align="center">
+    INTRODUCTION TO TOPIC MODELING AND TEXT CLASSIFICATION
+   </p>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Key Concepts and Terms
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Introduction to Topic Modeling and Text Classification
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/01_01_introduction_to_topic_modeling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01_01_introduction_to_topic_modeling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-this-series-of-notebooks">
+   1.1. Introduction to this Series of Notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-concepts-in-this-notebook">
+   1.2. Key Concepts in this Notebook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-natural-language-processing">
+   1.3. What is Natural Language Processing?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rules-based-methods">
+   1.4. Rules-Based Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-based-methods">
+   1.5. Machine Learning-Based Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-use-topic-modeling">
+   1.6. Why use Topic Modeling?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#video">
+   1.7. Video
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="center-introduction-to-topic-modeling-center">
+<h1><span class="section-number">1. </span><center>Introduction to Topic Modeling</center><a class="headerlink" href="#center-introduction-to-topic-modeling-center" title="Permalink to this headline">¶</a></h1>
+<center>Dr. W.J.B. Mattingly</center>
+<center>Smithsonian Data Science Lab and United States Holocaust Memorial Museum</center>
+<center>February 2021</center><div class="section" id="introduction-to-this-series-of-notebooks">
+<h2><span class="section-number">1.1. </span>Introduction to this Series of Notebooks<a class="headerlink" href="#introduction-to-this-series-of-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>These notebooks are designed for those interested in performing topic modeling or text classification via Python. They are intended those who have limited coding experience and no background in natural language processing (NLP). A basic understanding of Python is necessary to partake fully in this series, however, those with no coding experience will still gain a foundational understanding of topic modeling and text classification, the common problems in these fields, and solutions to those problems. For those interested in gaining a quick introduction to Python, please see my series designed for digital humanists at <a href="www.PythonHumanities.com" target="_blank">PythonHumanities.com</a>.</p>
+<p>The purposes of these notebooks is fivefold.</p>
+<ol class="simple">
+<li><p>Introduce the reader to the core concepts of topic modeling and text classification<br></p></li>
+<li><p>Provide an introduction to three libraries (Scikit Learn, Gensim, and spaCy) for those with limited Python knowledge<br></p></li>
+<li><p>Detail the problems and solutions to working with various topic modeling problems<br></p></li>
+<li><p>Detail the different approaches to topic modeling and text classification (rules-based and machine learning-based)<br></p></li>
+<li><p>Provide code that will be easily replicable for readers who wish to apply these methods to their own domains.<br></p></li>
+</ol>
+<p>These notebooks shall serve as a guide for those experiencing similar problems in all domains. Throughout these notebooks, we will work with two datasets. The first is a collection of short descriptions of violence in Apartheid South Africa, which comes from Volume 7 of the Truth and Reconciliation Commission’s final report (hereafter, TRC Vol. 7). The second is a collection of oral testimonies held at the United States Holocaust Memorial Museum (hereafter, USHMM Oral Tesimonies). I will explain each of these datasets in detail when we first encounter them. I have chosen these two datasets because they represent different types of data, from brief statements (TRC Vol. 7) to long testimonies (USHMM Oral Testimonies).</p>
+<p>Key concepts and terminology will be emboldened. If there are mistakes in grammar, spelling, or code, please reach out to me via twitter (<a href="https://twitter.com/wjb_mattingly" target="_blank">&#64;wjb_mattingly</a>) and I will update the notebooks accordingly.</p>
+</div>
+<div class="section" id="key-concepts-in-this-notebook">
+<h2><span class="section-number">1.2. </span>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>natural language processing (NLP)<br></p></li>
+<li><p>natural language understanding (NLU)<br></p></li>
+<li><p>topic modeling<br></p></li>
+<li><p>tokens and tokenization<br></p></li>
+<li><p>multi-word tokens<br></p></li>
+<li><p>spans<br></p></li>
+<li><p>pipelines<br></p></li>
+</ol>
+</div>
+<div class="section" id="what-is-natural-language-processing">
+<h2><span class="section-number">1.3. </span>What is Natural Language Processing?<a class="headerlink" href="#what-is-natural-language-processing" title="Permalink to this headline">¶</a></h2>
+<p>Topic modeling and text classification (addressed below) is a branch of <strong>natural language understanding</strong>, better known as <strong>NLP</strong>. It is closely connected to  <strong>natural language understanding</strong>, better known as <strong>NLU</strong>. NLP is the process by which a researcher uses a computer system to parse human language and extract important metadata from texts. The purpose of NLP is to perform, among other things, <strong>distant reding</strong>.</p>
+<p>Distant reading has a long history extending to the late-twentieth century. It is commonly used when the quantity of texts in a given corpus prevent a researcher (or a team of researchers) from reading the corpus <em>closely</em> in its entirety. In order to make sense of that large corpus, the researcher will often pass certain tasks to a computer with the understanding that there is a margin of error. This margin of error is accepted in exchange for the ability to gain a larger, <em>distant</em> understanding of that corpus.</p>
+<p>The metadata from these tasks can then be used to get a sense of the texts without reading them closely, hence the term <em>distant reading</em>.</p>
+<p>To get a better understanding of how these fields relate to one another, please see the image below.</p>
+<img alt="https://cdn-images-1.medium.com/max/1000/1*Uf_qQ0zF8G8y9zUhndA08w.png" src="https://cdn-images-1.medium.com/max/1000/1*Uf_qQ0zF8G8y9zUhndA08w.png" />
+<p>This image is commonly shared across various NLP tutorials and for good reason. It accuarately portrays the diverse field of NLP and its close partner fields of NLU and ASR. The goal of NLU is to give a computer system a text (or collection of texts) and produce some sense of understanding about that text or those texts.</p>
+<p>There are various types of tasks that fall under NLU, including paraphrase and natural language inference. This is when a computer system takes an input text of, say 5,000 words, reduces that text to its core components, and outputs a summary of the text. This is a task often used by law firms that need to gain a quick understanding of a large corpus of documents to target their investigation and use their time wisely. Another task is sentiment analysis in which a user gives a computer system a text and the system determines whether it is x or y. This is often used by social media companies to determine if a text is abusive so that they can flag and delete inappropriate content automatically.</p>
+<p>A common form of NLP and the subject of these notebooks is topic modeling and text classification. While closely linked and rather similar, they are distinct methods that perform distinct tasks. For topic modeling, we give a computer system a text and it tells us what topic(s) is (are) discussed in it. For text classification, we give a system a text and it classifies it into certain categories. In essense, while NLP is essential for working with textual data in a computer environment by parsing it and identifying its key components, NLU goes one step further and tries to <em>understand</em> that same data the way a human may.</p>
+<p>For all NLP and NLU tasks, there are rules-based and machine learning-based approaches. In this notebook, we will be looking at each. Parts Two and Three in this book are focused on clustering and topic modeling. In Part Two, we will explore rules-based methods, such as Topic Frequency-Inverse Document Frequency, better known as TF-IDF; and in Part Three we will explore machine learning-based methods, specifically Latent Dirichlet Allocation models, better known as LDA models.</p>
+<p>Before we move into those subjects, something should be said of rules-based vs. machine learning-based approaches.</p>
+</div>
+<div class="section" id="rules-based-methods">
+<h2><span class="section-number">1.4. </span>Rules-Based Methods<a class="headerlink" href="#rules-based-methods" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="machine-learning-based-methods">
+<h2><span class="section-number">1.5. </span>Machine Learning-Based Methods<a class="headerlink" href="#machine-learning-based-methods" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="why-use-topic-modeling">
+<h2><span class="section-number">1.6. </span>Why use Topic Modeling?<a class="headerlink" href="#why-use-topic-modeling" title="Permalink to this headline">¶</a></h2>
+<p>All of this leads to a vital question: Why use topic modeling? Topic modeling affords researchers the ability to learn a lot about their corpus very quickly. It is often used whent he corpus is so large that no single human could read it in a single lifetime.</p>
+<p>In both a rules-based and machine learning-based approach, a researcher can see what major subjects are discussed in a corpus. This information can be used to perform targetted research by weeding out the documents that likely do not contain the information the researcher needs. Additionally, the information drawn from topic modeling can be used to make large deductions about the corpus at hand. We will see that topic modeling can be used to draw imprecise or incorrect conclusions.</p>
+<p>It is vital, however, to understand the limitations of topic modeling. There is always a potential for the researcher to use topic modeling to validate a wrong presumption about the data. Throughout this series, I will emphasize methodological steps that can (and should) be taken to limit these mistakes. Despite this potential for error, topic modeling can provide valuable insight, relatively quickly about a large corpus.</p>
+</div>
+<div class="section" id="video">
+<h2><span class="section-number">1.7. </span>Video<a class="headerlink" href="#video" title="Permalink to this headline">¶</a></h2>
+<p>In this video, I explain these concepts and outline the future parts of this blog.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">&quot;center&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/N0crN8YnF8Y&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N0crN8YnF8Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page"><p align="center">INTRODUCTION TO TOPIC MODELING AND TEXT CLASSIFICATION</p></a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By William Mattingly<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
