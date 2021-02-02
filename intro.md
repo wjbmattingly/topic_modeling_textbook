@@ -6,6 +6,9 @@
 <p align="center">and</p>
 <p align="center">United States Holocaust Memorial Museum</p>
 
+### <p align="center">How to Cite</p>
+Mattingly, William. <i>Introduction to Topic Modeling and Text Classification</i>, 2021. <a href="topic-modeling.pythonhumanities.com" target="_blank">topic-modeling.pythonhumanities.com</a>.
+<p align="center">
 
 <br><br><br><br>
 ### <p align="center">Introduction</p>
