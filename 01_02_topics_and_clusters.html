@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Topics and Clusters &#8212; Introduction to Topic Modeling and Text Classification</title>
+    <title>2. Topics and Clusters &#8212; Introduction to Topic Modeling and Text Classification</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,6 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Introduction to Topic Modeling" href="01_01_introduction_to_topic_modeling.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -97,10 +98,15 @@
   Key Concepts and Terms
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="01_01_introduction_to_topic_modeling.html">
    1. Introduction to Topic Modeling and Text Classification
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Introduction to Topics and Clusters
   </a>
  </li>
 </ul>
@@ -210,27 +216,27 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-concepts-in-this-notebook">
-   Key Concepts in this Notebook
+   2.1. Key Concepts in this Notebook
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   Introduction
+   2.2. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-are-topics">
-   What are Topics?
+   2.3. What are Topics?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-are-clusters">
-   What are Clusters?
+   2.4. What are Clusters?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#brief-introduction-to-k-means">
-   Brief Introduction to K-Means
+   2.5. Brief Introduction to K-Means
   </a>
  </li>
 </ul>
@@ -245,11 +251,11 @@
               <div>
                 
   <div class="section" id="center-topics-and-clusters-center">
-<h1><center>Topics and Clusters</center><a class="headerlink" href="#center-topics-and-clusters-center" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2. </span><center>Topics and Clusters</center><a class="headerlink" href="#center-topics-and-clusters-center" title="Permalink to this headline">¶</a></h1>
 <center>Dr. W.J.B. Mattingly</center>
 <center>Smithsonian Data Science Lab and United States Holocaust Memorial Museum</center>
 <center>February 2021</center><div class="section" id="key-concepts-in-this-notebook">
-<h2>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>topics<br></p></li>
 <li><p>clusters<br></p></li>
@@ -257,11 +263,11 @@
 </ol>
 </div>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This notebook will focus on the key terms and terms for topic modeling: topics, clusters, and k-means. Each of these terms will be used throughout this book and it is worth defining them early.</p>
 </div>
 <div class="section" id="what-are-topics">
-<h2>What are Topics?<a class="headerlink" href="#what-are-topics" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3. </span>What are Topics?<a class="headerlink" href="#what-are-topics" title="Permalink to this headline">¶</a></h2>
 <p><strong>Topics</strong> are labels assigned to textual data that detail the subjects contained within a given text. In topic modeling we try to create computer systems that can assign topics the way a human would. In order to understand this process, it’s best if we take a step back and think about how we assign topics.</p>
 <p>To do this, let’s examine these two texts.</p>
 <p>Text 1: Thomas enjoys playing basketball. He is an exceptionally good point guard.
@@ -273,11 +279,11 @@ Text 4: Jeff is a talented cook. He owns a pizzaria.</p>
 <p>What does this demonstrate? It tells us that topics are corpus-dependent, meaning the topics we assign to texts depend on their context against surrounding texts. The same holds true for topic modeling via computer systems.</p>
 </div>
 <div class="section" id="what-are-clusters">
-<h2>What are Clusters?<a class="headerlink" href="#what-are-clusters" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4. </span>What are Clusters?<a class="headerlink" href="#what-are-clusters" title="Permalink to this headline">¶</a></h2>
 <p>In topic modeling, computer systems do not generate topics, rather they generate a list of high concentration words. Texts that share common terms are clustered together by similarity. A <strong>cluster</strong> is nothing more than a collection of similar texts. There are various ways to cluster textual data that we will explore throughout this series, but one of the fundamental ones we will use is k-means.</p>
 </div>
 <div class="section" id="brief-introduction-to-k-means">
-<h2>Brief Introduction to K-Means<a class="headerlink" href="#brief-introduction-to-k-means" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5. </span>Brief Introduction to K-Means<a class="headerlink" href="#brief-introduction-to-k-means" title="Permalink to this headline">¶</a></h2>
 <p><strong>K-means</strong> is a common method of clustering in data science and can be easily implemented via the Python library Scikit-Learn (see Part Two of this book). The K-means method of clustering takes in the textual data and places all documens in <em>k</em> number of clusters. In this scenario, the researcher assigns a numerical variable for <em>k</em>, so if the researcher wished to see all texts clustered into 10 topics, or clusters, the k-means algorithm would find the documents with the greatest degree of similarity and place them in the closest mean cluster. The result is a forced clustering of all texts neatly into 10 clusters. We can then discern their topics by examining the words that overlap between texts in each cluster. As we will see in Part Two, this can be tricky and invovles trial and error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -325,6 +331,7 @@ Text 4: Jeff is a talented cook. He owns a pizzaria.</p>
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="01_01_introduction_to_topic_modeling.html" title="previous page"><span class="section-number">1. </span><center>Introduction to Topic Modeling</center></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
