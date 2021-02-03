@@ -4,5 +4,5 @@
   chapters:
   - file: 01_01_introduction_to_topic_modeling
     title: Introduction to Topic Modeling and Text Classification
-   - file: 01_02_topics_and_clusters
+  - file: 01_02_topics_and_clusters
     title: Introduction to Topics and Clusters
