@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bigrams and Trigrams &#8212; Introduction to Topic Modeling and Text Classification</title>
+    <title>3. Bigrams and Trigrams &#8212; Introduction to Topic Modeling and Text Classification</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,6 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2. Topics and Clusters" href="01_02_topics_and_clusters.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -97,7 +98,7 @@
   Key Concepts and Terms
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="01_01_introduction_to_topic_modeling.html">
    1. Introduction to Topic Modeling and Text Classification
@@ -106,6 +107,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="01_02_topics_and_clusters.html">
    2. Introduction to Topics and Clusters
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Bigrams and Trigrams
   </a>
  </li>
 </ul>
@@ -215,27 +221,27 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-concepts-in-this-notebook">
-   Key Concepts in this Notebook
+   3.1. Key Concepts in this Notebook
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   Introduction
+   3.2. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bigrams">
-   Bigrams
+   3.3. Bigrams
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#trigrams">
-   Trigrams
+   3.4. Trigrams
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-are-these-important">
-   Why are these Important?
+   3.5. Why are these Important?
   </a>
  </li>
 </ul>
@@ -250,11 +256,11 @@
               <div>
                 
   <div class="section" id="center-bigrams-and-trigrams-center">
-<h1><center>Bigrams and Trigrams</center><a class="headerlink" href="#center-bigrams-and-trigrams-center" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span><center>Bigrams and Trigrams</center><a class="headerlink" href="#center-bigrams-and-trigrams-center" title="Permalink to this headline">¶</a></h1>
 <center>Dr. W.J.B. Mattingly</center>
 <center>Smithsonian Data Science Lab and United States Holocaust Memorial Museum</center>
 <center>February 2021</center><div class="section" id="key-concepts-in-this-notebook">
-<h2>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>unigrams<br></p></li>
 <li><p>bigrams<br></p></li>
@@ -262,7 +268,7 @@
 </ol>
 </div>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Let’s take a moment and step away from the subject of this textbook, topic modeling. Instead, let’s think about language, the essential medium of topic modeling. This notebook will be exclusively about one aspect of langauge: bigrams and trigrams. When we use words, those words correspond to something distinct.</p>
 <p>If I use the word apple, you likely are thinking of something like this:</p>
 <img src="images/apple.png" width="240" height="240" align="center"/>
@@ -273,7 +279,7 @@
 <p>Understanding bigrams and trigrams are essential because in order for a computer to truly understand langauge the way a human does, it must be able to understand the nuances of a single word and how a word’s meaning not only shifts in context, but shifts in meaning when used in conjunction with other words.</p>
 </div>
 <div class="section" id="bigrams">
-<h2>Bigrams<a class="headerlink" href="#bigrams" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Bigrams<a class="headerlink" href="#bigrams" title="Permalink to this headline">¶</a></h2>
 <p>As noted above, a bigram is a combination of two words that have a distinct meaning. To demonstrate this, let us consider quickly the word “French”. A single word, that may have multiple meanings. Perhaps the word French refers to the language:</p>
 <img src="images/french_language.jpg" width="240" height="240" align="center"/>
 <p>Perhaps it references a French person:</p>
@@ -285,7 +291,7 @@
 <p>But we can think about language in even more nuanced ways.</p>
 </div>
 <div class="section" id="trigrams">
-<h2>Trigrams<a class="headerlink" href="#trigrams" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Trigrams<a class="headerlink" href="#trigrams" title="Permalink to this headline">¶</a></h2>
 <p>Trigrams, as noted above, are the same as bigrams, except with three words, instead of two. Let’s continue with our example of “French”. What might you think about if I used the word “army”. Perhaps something distinct to your own experiences with the word. For me, as a modern American, I think initially about the American Army in the modern sense of the word. So I may picture something like this:</p>
 <img src="images/army.jpg" width="240" height="240" align="center"/>
 <p>For others in other parts of the world, other images may be more relevant. However, when I use the phrase “The French Revolutionary Army”, I now have something defined, something distinct. I have this:</p>
@@ -293,7 +299,7 @@
 <p>This is a trigram, a distinct concept consisting of three words that may have individual meanings when used alone.</p>
 </div>
 <div class="section" id="why-are-these-important">
-<h2>Why are these Important?<a class="headerlink" href="#why-are-these-important" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5. </span>Why are these Important?<a class="headerlink" href="#why-are-these-important" title="Permalink to this headline">¶</a></h2>
 <p>So, why are bigrams and trigrams so important? The reason comes down to getting machines to understand that when certain words are used together, they bear a distinct meaning. In order to produce a good topic model, therefore, the model must be able to understand and process words in this manner, the way we humans use the language we are trying to get the machine to understand.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -341,6 +347,7 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="01_02_topics_and_clusters.html" title="previous page"><span class="section-number">2. </span><center>Topics and Clusters</center></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
