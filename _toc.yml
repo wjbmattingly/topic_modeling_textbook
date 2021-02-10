@@ -6,3 +6,5 @@
     title: Introduction to Topic Modeling and Text Classification
   - file: 01_02_topics_and_clusters
     title: Introduction to Topics and Clusters
+  - file: 01_03_bigrams_and_trigrams
+    title: Bigrams and Trigrams
