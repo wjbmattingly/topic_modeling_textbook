@@ -8,3 +8,7 @@
     title: Introduction to Topics and Clusters
   - file: 01_03_bigrams_and_trigrams
     title: Bigrams and Trigrams
+- part: TF-IDF
+  chapters:
+  - file: 02_01_intro_to_tf_idf.ipynb
+    title: Introduction to TF-IDF
