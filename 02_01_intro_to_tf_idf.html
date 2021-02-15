@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to TF-IDF &#8212; Introduction to Topic Modeling and Text Classification</title>
+    <title>1. Introduction to TF-IDF &#8212; Introduction to Topic Modeling and Text Classification</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,6 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="3. Bigrams and Trigrams" href="01_03_bigrams_and_trigrams.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -111,6 +112,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="01_03_bigrams_and_trigrams.html">
    3. Bigrams and Trigrams
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  TF-IDF
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Introduction to TF-IDF
   </a>
  </li>
 </ul>
@@ -220,37 +233,37 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-concepts-in-this-notebook">
-   Key Concepts in this Notebook
+   1.1. Key Concepts in this Notebook
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   Introduction
+   1.2. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#meaning-of-tf-idf">
-   Meaning of TF-IDF
+   1.3. Meaning of TF-IDF
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#term-frequency">
-   Term Frequency
+   1.4. Term Frequency
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#inverse-document-frequency">
-   Inverse Document Frequency
+   1.5. Inverse Document Frequency
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bringing-it-all-together">
-   Bringing it all Together
+   1.6. Bringing it all Together
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#video">
-   Video
+   1.7. Video
   </a>
  </li>
 </ul>
@@ -265,11 +278,11 @@
               <div>
                 
   <div class="section" id="center-introduction-to-tf-idf-center">
-<h1><center>Introduction to TF-IDF</center><a class="headerlink" href="#center-introduction-to-tf-idf-center" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1. </span><center>Introduction to TF-IDF</center><a class="headerlink" href="#center-introduction-to-tf-idf-center" title="Permalink to this headline">¶</a></h1>
 <center>Dr. W.J.B. Mattingly</center>
 <center>Smithsonian Data Science Lab and United States Holocaust Memorial Museum</center>
 <center>February 2021</center><div class="section" id="key-concepts-in-this-notebook">
-<h2>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.1. </span>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>TF-IDF<br></p></li>
 <li><p>Term Frequency<br></p></li>
@@ -277,27 +290,27 @@
 </ol>
 </div>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>The key subject of this notebook is TF-IDF, or Term Frequency-Inverse Document Frequency. <strong>TF-IDF</strong> is an algorithm for determining the relevancy of words in a given document, respective to the corpus in which it sits. It is a fundamental method for search retrieval in search engines. This notebook will explore not only what TF-IDF is, but the math behind it. While understanding the math is not essential, it will give you a much clearer sense of <em>how</em> TF-IDF works and, more importantly, when to use it.</p>
 </div>
 <div class="section" id="meaning-of-tf-idf">
-<h2>Meaning of TF-IDF<a class="headerlink" href="#meaning-of-tf-idf" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Meaning of TF-IDF<a class="headerlink" href="#meaning-of-tf-idf" title="Permalink to this headline">¶</a></h2>
 <p>As noted above, TF-IDF stands for Term Frequency-Inverse Document Frequency. What does that mean? It means the frequency of a given term respective to that word’s frequency on all other documents. In theory, this basic algorithm will result in a number that tells you how significant a word is not only within the document, but also how significant that document is for a search of that term. In order to understand this, however, it is essential to explore the math. I have found that the best way to explore the math is to break the algorithm into its two components: TF and IDF.</p>
 </div>
 <div class="section" id="term-frequency">
-<h2>Term Frequency<a class="headerlink" href="#term-frequency" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4. </span>Term Frequency<a class="headerlink" href="#term-frequency" title="Permalink to this headline">¶</a></h2>
 <p>Let’s first explore Term Frequency. <strong>Term Frequency</strong> means the frequency of a given term. To calculate term frequency, it is actually quite intuitive and simple. We simple calculate how frequently that term appears in a given document, i.e. a percentage. So, if we have a document that is 100 words long and a term appears 30 times, that term would have a term frequency of .3, or 30%.</p>
 </div>
 <div class="section" id="inverse-document-frequency">
-<h2>Inverse Document Frequency<a class="headerlink" href="#inverse-document-frequency" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5. </span>Inverse Document Frequency<a class="headerlink" href="#inverse-document-frequency" title="Permalink to this headline">¶</a></h2>
 <p>The second part of this algorithm is Inverse Document Frequency. <strong>Inverse Document Frequency</strong> is a little more complex, but simple if broken down. Let’s imagine that a corpus has 10,000 documents in it and 352 documents mention the same term referenced above. First, we need to calculate what percentage of documents contain that term. To do this, we would simply divide 10,000 by 352. That gives us approximately 28.41. To calculate the IDF, however, that is not enough, we must log() that number. The logarithm flattens out the number to make the number more proportional to the number. So, when we do log(28.41), we get 1.45 (to see this in action, watch the video below). This means that the IDF is 1.45.</p>
 </div>
 <div class="section" id="bringing-it-all-together">
-<h2>Bringing it all Together<a class="headerlink" href="#bringing-it-all-together" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6. </span>Bringing it all Together<a class="headerlink" href="#bringing-it-all-together" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have our TF (.30) and our IDF (1.45), we can now bring this algorithm together. To do that, we simply multiple the two numbers, i.e. .3 x 1.45. When we do that, we get the number .44, this is our TF-IDF score. If this was confusing at all, I encourage you to watch the video below in which I walk you through how to do this with a calculate. In later notebooks, we are going to see how to do this in Python with Scikit-Learn.</p>
 </div>
 <div class="section" id="video">
-<h2>Video<a class="headerlink" href="#video" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7. </span>Video<a class="headerlink" href="#video" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
@@ -344,6 +357,7 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="01_03_bigrams_and_trigrams.html" title="previous page"><span class="section-number">3. </span><center>Bigrams and Trigrams</center></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
