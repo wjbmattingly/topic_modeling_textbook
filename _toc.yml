@@ -12,3 +12,5 @@
   chapters:
   - file: 02_01_intro_to_tf_idf.ipynb
     title: Introduction to TF-IDF
+  - file: 02_02_intro_to_scikit_learn
+    title: Introduction to Scikit-Learn
