@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to Scikit Learn &#8212; Introduction to Topic Modeling and Text Classification</title>
+    <title>2. Introduction to Scikit Learn &#8212; Introduction to Topic Modeling and Text Classification</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,6 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Introduction to TF-IDF" href="02_01_intro_to_tf_idf.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -119,10 +120,15 @@
   TF-IDF
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="02_01_intro_to_tf_idf.html">
    1. Introduction to TF-IDF
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Introduction to Scikit-Learn
   </a>
  </li>
 </ul>
@@ -232,32 +238,32 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-concepts-in-this-notebook">
-   Key Concepts in this Notebook
+   2.1. Key Concepts in this Notebook
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   Introduction
+   2.2. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-scikit-learn">
-   What is Scikit-Learn?
+   2.3. What is Scikit-Learn?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-scikit-learn-is-important">
-   Why Scikit Learn is Important
+   2.4. Why Scikit Learn is Important
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-install-scikit-learn">
-   How to Install Scikit-Learn
+   2.5. How to Install Scikit-Learn
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#common-problem-with-numpy-on-windows-pc">
-   Common Problem with NumPy on Windows PC
+   2.6. Common Problem with NumPy on Windows PC
   </a>
  </li>
 </ul>
@@ -272,11 +278,11 @@
               <div>
                 
   <div class="section" id="center-introduction-to-scikit-learn-center">
-<h1><center>Introduction to Scikit Learn</center><a class="headerlink" href="#center-introduction-to-scikit-learn-center" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2. </span><center>Introduction to Scikit Learn</center><a class="headerlink" href="#center-introduction-to-scikit-learn-center" title="Permalink to this headline">¶</a></h1>
 <center>Dr. W.J.B. Mattingly</center>
 <center>Smithsonian Data Science Lab and United States Holocaust Memorial Museum</center>
 <center>February 2021</center><div class="section" id="key-concepts-in-this-notebook">
-<h2>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Scikit Learn<br></p></li>
 <li><p>Algorithm<br></p></li>
@@ -286,13 +292,13 @@
 </ol>
 </div>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>In this notebook, you will meet a powerful and important Python library: Scikit-Learn, or Sklearn (often pronounced S-K-Learn). For humanists, Sklearn is a library that is used when necessary. It is rarely a library that one devotes significant time to learning. This, however, drastically limits the capabilities of the humanist. While sklearn is more often used in the sciences, its potential for use in the humanities is vast, especially in when it comes to certain tasks in text analysis, namely topic modeling and data clustering.</p>
 <p>As we explore TF-IDF in Part Two of this notebook, we will see the power of Sklearn as we use it to perform two tasks. First, we will use it to perform TF-IDF. This will get all documents to a set of a key words. We will then use those key words to harness another feature of Sklearn, KMeans. We will use KMeans to cluster the keywords to identify topics present in our sources. If you are unsure what all this means, by the end of Part Two, you will not only understand these concepts and terms, you will also know how to do it in Python.</p>
 <p>Before we begin to explore the code, however, it is vital that you have a basic understanding of the key library, Sklearn, its features, and how to install it correctly. This notebook will cover these ideas as well as some of the potential problems you may encounter while installing Sklearn on a Windows PC.</p>
 </div>
 <div class="section" id="what-is-scikit-learn">
-<h2>What is Scikit-Learn?<a class="headerlink" href="#what-is-scikit-learn" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3. </span>What is Scikit-Learn?<a class="headerlink" href="#what-is-scikit-learn" title="Permalink to this headline">¶</a></h2>
 <p><strong>Scikit-Learn</strong> is a powerful Python library often used by the sciences. In the sciences, Scikit-Learn is a necessary library and one that is encountered early in coding courses on Python. The reason? Because it provides users with easy-to-implement algorithms. An <strong>algorithm</strong> is nothing more than an algebraic formula designed to have a specific output based on a set of rules designated as variables. Rather than writing out algorithms manually in Python, Scikit-Learn allows users to select an algorithm and pass variables to the algorithm. Most importantly, it allows for significant and custom tweaking to these algorithms so that complex tasks can be achieved often in a single line of code.</p>
 <p>In addition, Scikit-Learn provides easy-to-use clustering algorithms so that in a single line of code a user can cluster data and achieve complex analysis relatively simply. In the image below, we can see an example of K-Means clustering, discussed in more depth in Notebook 01.02.</p>
 <p style="text-align:center;">
@@ -301,15 +307,15 @@
 <p>Most advanced Python libraries sit on top of, or depend on, Scikit-Learn. In machine learning, practitioners often use Scikit-Learn to implement standard machine learning algorithms or create rudimentary neural networks. Prior to TensorFlow/Keras and Pytorch/FastAI, this was the chief library in Python for handling machine learning.</p>
 </div>
 <div class="section" id="why-scikit-learn-is-important">
-<h2>Why Scikit Learn is Important<a class="headerlink" href="#why-scikit-learn-is-important" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Why Scikit Learn is Important<a class="headerlink" href="#why-scikit-learn-is-important" title="Permalink to this headline">¶</a></h2>
 <p>All of this explains why Scikit-Learn is important for the sciences, but why is it important for humanists? In order to perform distant reading, humanists need to be able to leverage computational methods for understanding documents en masse. In order to do that, the documents must be efficiently processed by a computer system. This is achieved via algorithms and clustering. In other words, for text analysis, Scikit-Learn should be a familiar library. While the original intention behind Scikit-Learn was for the analysis of data, the same methods can be used for the analysis of text. All the humanist needs to do, is to learn how to get the data into an appropriate form for parsing by the Scikit-Learn functions. That is what we will be covering in the next notebook.</p>
 </div>
 <div class="section" id="how-to-install-scikit-learn">
-<h2>How to Install Scikit-Learn<a class="headerlink" href="#how-to-install-scikit-learn" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5. </span>How to Install Scikit-Learn<a class="headerlink" href="#how-to-install-scikit-learn" title="Permalink to this headline">¶</a></h2>
 <p>The biggest hurdle for using Scikit-Learn is installing it. In order to install Scikit-Leran, visit their <a href="https://scikit-learn.org/stable/install.html" target="_blank">docs installation page</a> and select the options that conform to your system. Select your operating system (Windows, macOS, or Linux), then packager (pip or conda) and finally if you are using a virtual environment. If you are not familiar with virtual environments, keep that turned off. Once selected, there will appear code that you can copy and paste into your terminal to install Scikit-Learn, i.e. pip install -U scikit-learn.</p>
 </div>
 <div class="section" id="common-problem-with-numpy-on-windows-pc">
-<h2>Common Problem with NumPy on Windows PC<a class="headerlink" href="#common-problem-with-numpy-on-windows-pc" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6. </span>Common Problem with NumPy on Windows PC<a class="headerlink" href="#common-problem-with-numpy-on-windows-pc" title="Permalink to this headline">¶</a></h2>
 <p>If you are on Windows, you may encounter a problem in the installation process with the dependency NumPy. In order to install NumPy Correctly, I recommend doing it manually with the Math Kernal Library, the file is found <a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank">here</a>. Watch the video below for instructions on how to resolve this problem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -357,6 +363,7 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="02_01_intro_to_tf_idf.html" title="previous page"><span class="section-number">1. </span><center>Introduction to TF-IDF</center></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
