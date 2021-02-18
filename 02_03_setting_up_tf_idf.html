@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Setting up TF-IDF in Python and Scikit Learn &#8212; Introduction to Topic Modeling and Text Classification</title>
+    <title>3. Setting up TF-IDF in Python and Scikit Learn &#8212; Introduction to Topic Modeling and Text Classification</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,6 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2. Introduction to Scikit Learn" href="02_02_intro_to_scikit_learn.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -119,7 +120,7 @@
   TF-IDF
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="02_01_intro_to_tf_idf.html">
    1. Introduction to TF-IDF
@@ -128,6 +129,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="02_02_intro_to_scikit_learn.html">
    2. Introduction to Scikit-Learn
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Setting up TF-IDF in Python
   </a>
  </li>
 </ul>
@@ -237,42 +243,42 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#key-concepts-in-this-notebook">
-   Key Concepts in this Notebook
+   3.1. Key Concepts in this Notebook
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   Introduction
+   3.2. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-trc-data">
-   The TRC Data
+   3.3. The TRC Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#preparing-the-data">
-   Preparing the Data
+   3.4. Preparing the Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cleaning-the-data">
-   Cleaning the Data
+   3.5. Cleaning the Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#implementing-tf-idf-in-python">
-   Implementing TF-IDF in Python
+   3.6. Implementing TF-IDF in Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#k-means-clustering">
-   K-Means Clustering
+   3.7. K-Means Clustering
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#plotting-the-data">
-   Plotting the Data
+   3.8. Plotting the Data
   </a>
  </li>
 </ul>
@@ -287,11 +293,11 @@
               <div>
                 
   <div class="section" id="center-setting-up-tf-idf-in-python-and-scikit-learn-center">
-<h1><center>Setting up TF-IDF in Python and Scikit Learn</center><a class="headerlink" href="#center-setting-up-tf-idf-in-python-and-scikit-learn-center" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span><center>Setting up TF-IDF in Python and Scikit Learn</center><a class="headerlink" href="#center-setting-up-tf-idf-in-python-and-scikit-learn-center" title="Permalink to this headline">¶</a></h1>
 <center>Dr. W.J.B. Mattingly</center>
 <center>Smithsonian Data Science Lab and United States Holocaust Memorial Museum</center>
 <center>February 2021</center><div class="section" id="key-concepts-in-this-notebook">
-<h2>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Key Concepts in this Notebook<a class="headerlink" href="#key-concepts-in-this-notebook" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Importing the required libraries<br></p></li>
 <li><p>Preparing the data properly<br></p></li>
@@ -299,18 +305,18 @@
 </ol>
 </div>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>In the last notebook, we learned about Scikit-Learn. In this notebook, we are going to take that knowledge and implement the TF-IDF algorithm from Scikit-Learn, but before we do that, we have to consider one very important thing: the state of our data. Whenever you are using algorithms, it is always <em>essential</em> to think about what form does the algorithm expect. The first part of this notebook will, therefore, be dedicated to explaining the data and preparing it for the TF-IDF algorithm. It is important to note that this notebook will be code-centric.</p>
 <p>Finally, because this notebook is designed to be from beginning to end of a TF-IDF implementation, from preparing the data to cleaning to TF-IDF to Clustering to data visualization, this notebook will be longer than the previous ones.</p>
 </div>
 <div class="section" id="the-trc-data">
-<h2>The TRC Data<a class="headerlink" href="#the-trc-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>The TRC Data<a class="headerlink" href="#the-trc-data" title="Permalink to this headline">¶</a></h2>
 <p>And every real world scenario you will know the date of that you are working with. In this section I think it’s worthwhile to spend a little bit of time talking about the data that we are going to be working with throughout this note book series. The first bit of data that we’re going to be working with is a collection of descriptions of violence from apartheid South Africa from the 20th century. They come out of the Truth and Reconciliation Commission in the early 2000s, The Truth and Reconciliation Commission or the TRC was a body put together in the end of the twentieth century to catalog the violence that befell victims during the apartheid period. The first data set is what is known as Volume 7 of the TRC report. is organized as a collection of individuals and a brief description of the violence that befell them and the victim’s age. Descriptions of violence are not structured in any way. Instead they have Rich metadata within them. This metadata consists of things like dates, places, and other organizations during the 20th century.</p>
 <p>The date that I have prepared for you is a JSON file of the TRC Volume 7 report. The JSON file is structured as a dictionary with two keys the first key is names and that corresponds to a list of the victim names. The second key is descriptions. This is the key piece of the data that we will be working with. These are the descriptions of violence and we are trying to identify topics within these descriptions.</p>
 <p>The second collection of data that we will not work with and this tf-idf part is a collection of oral testimonies from the Holocaust given by victims of the Holocaust and are held at the United States Holocaust Memorial Museum or the USHMM.   as we will see throughout this series data sets that consists of smaller quantities of text so in our case short descriptions are better suited for TF-IDF top modeling while longer text such as oral testimonies are better suited for LDA topic modeling. and this portion of the textbook therefore we will be strictly working with the TRC data set.</p>
 </div>
 <div class="section" id="preparing-the-data">
-<h2>Preparing the Data<a class="headerlink" href="#preparing-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Preparing the Data<a class="headerlink" href="#preparing-the-data" title="Permalink to this headline">¶</a></h2>
 <p>In this section of the notebook we will begin importing and manipulating and working with our TRC dataset and in order to do that you need to be familiar with how to import JSON data in Python so in this first block of code we will be doing just that.  I always find that writing out a basic function for reading Json data is always useful because you can use the function throughout your script without having to write 3 lines of code and instead simply writing one. We are going to call this function load_data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -365,7 +371,7 @@ An ANCYL member who was shot and severely injured by SAP members at Lephoi, Beth
 <p>Below, we will use the names to plot the data on a graph, but for now we will strictly be working with the descriptions list. The reason for this is because these are the texts that we want to cluster through TF-IDF and K-Means.</p>
 </div>
 <div class="section" id="cleaning-the-data">
-<h2>Cleaning the Data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5. </span>Cleaning the Data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have the data that we need for processing, it is time to start cleaning the data. When cleaning text for TF-IDF and topic modeling, it is often good practice to remove certain things from the text that may throw off the algorithms. The specific things you choose to remove from texts will vary depending on the texts you are working with, but there are generally certain words for each language that you will want to remove. These are called <strong>stop words</strong>.</p>
 <p>In English, stop words will be articles, such as ‘the’, ‘an’, and ‘a’ or the verb “to be”. These words are often removed from texts because they occur so frequently that they offer nothing unique about the texts at hand. In other words, they are so common that they do not aid in the clustering of texts. This is because clustering seeks to find particular features of texts and then identify the texts with common overlapping features. Stop words would make all texts overlap significantly. We remove these words to force clustering to focus on the more important words.</p>
 <p>In addition to this, we also often need to develop our own stop words for these specific texts, or a general domain. In our case, these texts have a lot of dates and AC numbers that correspond to other records. While these are significant pieces of metadata, these both throw off the clustering. If we were interested in seeing how dates overlap, there are better ways of performing that task. For those interested, see my <a href="ner.pythonhumanities.com">Named Entity Recognition Textbook</a>.</p>
@@ -457,7 +463,7 @@ An ANCYL member shot severely injured SAP members Lephoi Bethulie Orange Free St
 <p>As we can see from these two outputs, the original text has been heavily altered and cleaned. Notice, for example, the removal of the date. Now that we have the data fully cleaned, it is time to begin setting up the TF-IDF algorithm with Scikit-Learn.</p>
 </div>
 <div class="section" id="implementing-tf-idf-in-python">
-<h2>Implementing TF-IDF in Python<a class="headerlink" href="#implementing-tf-idf-in-python" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6. </span>Implementing TF-IDF in Python<a class="headerlink" href="#implementing-tf-idf-in-python" title="Permalink to this headline">¶</a></h2>
 <p>Implementing TF-IDF in Python requires us to import a few things from the Scikit Learn library. Remember, in Python Scikit Learn is “sklearn”. So, let’s import those things now.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -645,7 +651,7 @@ Only Keywords Text:
 </div>
 </div>
 <div class="section" id="k-means-clustering">
-<h2>K-Means Clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7. </span>K-Means Clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">¶</a></h2>
 <p>Now that our data is nothing more than a list of lists of key words for each document, we can use these features to see where there is overlap. This is called clustering and one method of clustering is K-Means which seeks to place every document into a cluster to which it has the most similarity. In the below code, we define true_k as the number of clusters. In this example, I am telling it to find 5 clusters. In the video below, I used 20, but as we will see for plotting it is easier to have 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -812,7 +818,7 @@ security
 </div>
 </div>
 <div class="section" id="plotting-the-data">
-<h2>Plotting the Data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.8. </span>Plotting the Data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">¶</a></h2>
 <p>This portion of the notebook is perhaps best illustrated with the video below. The code below has already been executed so that you can see the data plotted out on a graph. Each node on the graph represents a description. Each color represents a cluster.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -915,6 +921,7 @@ security
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="02_02_intro_to_scikit_learn.html" title="previous page"><span class="section-number">2. </span><center>Introduction to Scikit Learn</center></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
