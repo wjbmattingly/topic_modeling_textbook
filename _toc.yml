@@ -14,3 +14,5 @@
     title: Introduction to TF-IDF
   - file: 02_02_intro_to_scikit_learn
     title: Introduction to Scikit-Learn
+  - file: 02_03_setting_up_tf_idf
+    title: Setting up TF-IDF in Python
