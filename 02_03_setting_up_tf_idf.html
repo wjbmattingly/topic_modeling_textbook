@@ -311,7 +311,7 @@
 </div>
 <div class="section" id="the-trc-data">
 <h2><span class="section-number">3.3. </span>The TRC Data<a class="headerlink" href="#the-trc-data" title="Permalink to this headline">¶</a></h2>
-<p>In every real world scenario you will know the date that you are working with. In this section I think it’s worthwhile to spend a little bit of time talking about the data that we are going to be working with throughout this notebook. The first bit of data that we’re going to be working with is a collection of descriptions of violence from apartheid South Africa from the 20th century. They come out of the Truth and Reconciliation Commission in the early 2000s. The Truth and Reconciliation Commission or the TRC was a body put together at the end of the twentieth century to catalog the violence that befell victims during the apartheid period. The first dataset is what is known as Volume 7 of the TRC Final Report. It is organized as a collection of individuals and a brief description of the violence that befell them and the victim’s age. Descriptions of violence are not structured in any way. Instead they have rich metadata within them. This metadata consists of things like dates, places, and other organizations during the 20th century.</p>
+<p>In every real world scenario you will know the data that you are working with. In this section I think it’s worthwhile to spend a little bit of time talking about the data that we are going to be working with throughout this notebook. The first bit of data that we’re going to be working with is a collection of descriptions of violence from apartheid South Africa from the 20th century. They come out of the Truth and Reconciliation Commission in the early 2000s. The Truth and Reconciliation Commission or the TRC was a body put together at the end of the twentieth century to catalog the violence that befell victims during the apartheid period. The first dataset is what is known as Volume 7 of the TRC Final Report. It is organized as a collection of individuals and a brief description of the violence that befell them and the victim’s age. Descriptions of violence are not structured in any way. Instead they have rich metadata within them. This metadata consists of things like dates, places, and other organizations during the 20th century.</p>
 <p>The data that I have prepared for you is a JSON file of the TRC Volume 7 report. The JSON file is structured as a dictionary with two keys the first key is names and that corresponds to a list of the victim names. The second key is descriptions. This is the key piece of the data that we will be working with. These are the descriptions of violence and we are trying to identify topics within these descriptions.</p>
 </div>
 <div class="section" id="preparing-the-data">
@@ -466,7 +466,9 @@ An ANCYL member shot severely injured SAP members Lephoi Bethulie Orange Free St
 <p>Implementing TF-IDF in Python requires us to import a few things from the Scikit Learn library. Remember, in Python Scikit Learn is “sklearn”. So, let’s import those things now.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A lot of this section comes from the Scikit Learn documentation and various blogs including the following:</span>
+<span class="c1">#https://towardsdatascience.com/applying-machine-learning-to-classify-an-unsupervised-text-document-e7bb6265f52</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 </pre></div>
 </div>
@@ -821,7 +823,9 @@ security
 <p>This portion of the notebook is perhaps best illustrated with the video below. The code below has already been executed so that you can see the data plotted out on a graph. Each node on the graph represents a description. Each color represents a cluster.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#A lot of this section was obtained from https://stackoverflow.com/questions/27494202/how-do-i-visualize-data-points-of-tf-idf-vectors-for-kmeans-clustering</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
 </pre></div>
 </div>
